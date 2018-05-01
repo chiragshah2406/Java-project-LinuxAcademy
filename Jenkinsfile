@@ -22,22 +22,21 @@ buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
              {
                sh 'ant -f build.xml -v'
                 }
-          post
-        {
-         success
-         {
-         archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
-}
-
-	     }
-	  }   
+             }
  stage('deploy') {
     steps {
          sh "cp dist/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/"
           }
        }
-}
-}	    
+     }       
+   post
+        {
+         success
+         {
+         archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
+          }
+        }   
+      }	    
 
 	     
 
