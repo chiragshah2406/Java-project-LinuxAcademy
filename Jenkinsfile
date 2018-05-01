@@ -6,7 +6,7 @@ agent
     }
 options
 { 
-buildDiscarder(logRotator(numtKeepStr: '2', artifactNumToKeepStr: '1'))
+buildDiscarder(logRotator(numtoKeepStr: '2', artifactNumToKeepStr: '1'))
 }
  stages
       { stage('BUILD')
