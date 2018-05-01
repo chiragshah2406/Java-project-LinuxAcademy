@@ -29,7 +29,7 @@ buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
          sh "cp dist/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/"
           }
        }
-
+}
        post
         {
          success
@@ -37,7 +37,6 @@ buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
          archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
 }
 }	    
-}
 }
 
 	     
