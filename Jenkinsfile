@@ -17,7 +17,7 @@ agent
         {
          success
          { 
-         archiveArtifacts artifacts: 'dist/*.jar', 'buildnumber', fingerprint: true
+         archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
 }
 }	    
 }
