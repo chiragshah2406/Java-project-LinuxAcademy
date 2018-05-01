@@ -13,7 +13,14 @@ agent
                 }
 	     }
 	     }
-	     }
+       post
+        {
+         success
+         { 
+         archiveArtifacts artifacts:'dist/*.jar','buildnumber',fingerprint:true
+}
+}	    
+}
 	     
 
 
