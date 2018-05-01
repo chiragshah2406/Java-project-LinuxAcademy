@@ -55,7 +55,8 @@ buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
          docker 'mkoellges/ubuntu_java8:16.04'
            }
          steps {
-           sh "wget http://35.196.135.83/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
+          sh "apt-get -y install wget" 
+          sh "wget http://35.196.135.83/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
            sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"    
 }
  }  
