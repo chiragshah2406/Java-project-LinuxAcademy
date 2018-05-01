@@ -25,7 +25,14 @@ buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
              {
                sh 'ant -f build.xml -v'
                 }
-             }
+         post
+        {
+         success
+         {
+         archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
+          }
+        }
+       }
  stage('deploy') {
         agent {
      label 'apache'
@@ -42,19 +49,9 @@ buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
            sh "wget http://35.196.135.83/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
            sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
      }
-     }
-     }       
-   post
-        {
-         success
-         {
-         archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
-          }
-        }   
-      }	    
-
-	     
-
+    }
+  }	     
+}
 
 
 
