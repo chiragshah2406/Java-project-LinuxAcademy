@@ -50,6 +50,15 @@ buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
            sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
      }
     }
+    stage("testing on ubuntu-debian docker container") {
+     agent {
+         docker 'mkoellges/ubuntu_java8:16.04'
+           }
+         steps {
+           sh "wget http://35.196.135.83/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
+           sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"    
+}
+ }  
   }	     
 }
 
