@@ -2,7 +2,7 @@ pipeline
 {
 agent
     { 
-     label 'slave'
+     label 'master'
     }
  stages
       { stage('BUILD')
