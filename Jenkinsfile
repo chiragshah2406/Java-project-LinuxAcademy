@@ -60,6 +60,9 @@ buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
 }
  }  
     stage('Promote to Green') {
+     agent {
+     label 'apache'
+      }
     steps  {
       sh "cp /var/www/html/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/green/rectangle_${env.BUILD_NUMBER}.jar"
   }
