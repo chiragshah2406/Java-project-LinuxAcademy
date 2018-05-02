@@ -92,7 +92,7 @@ buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
         sh 'git merge development'
         echo "Pushing to  origin master"
         sh 'git push origin master'
-        sh 'Tagging the Release'
+        echo 'Tagging the Release'
         sh "git tag rectangle-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}"
         sh "git push origin rectangle-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}"
 
