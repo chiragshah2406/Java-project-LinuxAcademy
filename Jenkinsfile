@@ -87,6 +87,7 @@ buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
         echo "Checking out Development Branch"
         sh 'git checkout development' 
   	echo " Checking Out Master Branch"
+        sh 'git pull origin'
         sh 'git checkout master'
         echo "Merging Development into Master Branch"
         sh 'git merge development'
