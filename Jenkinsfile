@@ -88,7 +88,7 @@ buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
         echo "Merging Development into Master Branch"
         sh 'git merge development'
         echo "Pushing to  origin master"
-        sh 'git push origin maser'
+        sh 'git push origin master'
  } 
 }      
 }
