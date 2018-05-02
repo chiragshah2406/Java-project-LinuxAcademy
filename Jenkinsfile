@@ -1,12 +1,11 @@
-pipeline
-{
+pipeline {
 agent none
 
 enviroment {
    MAJOR_VERSION = 1 
    }
-options
-{ 
+
+options{ 
 buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
 }
  stages{
