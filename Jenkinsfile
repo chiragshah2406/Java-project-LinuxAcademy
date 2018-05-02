@@ -1,9 +1,13 @@
 pipeline {
 agent none
 
-enviroment {
-   MAJOR_VERSION = 1 
-   }
+environment {
+    MAJOR_VERSION = 1
+  }
+
+options{
+buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
+}
 
  stages{
     stage('Unit Tests') {
