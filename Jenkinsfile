@@ -79,7 +79,7 @@ buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '1'))
       branch  'development'
          }
     steps{
-        echo "Stashing Any Local Changes"
+        echo "Stashing any Local Changes"
         sh 'git stash'
         echo "Checking out Development Branch"
         sh 'git checkout development' 
